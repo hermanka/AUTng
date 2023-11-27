@@ -22,16 +22,13 @@ jobs:
       - name: delete index html
         run: docker exec docker-apache rm -rf /usr/local/apache2/htdocs/index.html
 
-      - name: check conf server
-        run: docker exec docker-apache cat /usr/local/apache2/conf/httpd.conf
-
       - name: check server
         run: curl http://localhost:80
 
-      # - name: ZAP Scan
-      #   uses: zaproxy/action-baseline@v0.10.0
-      #   with:
-      #     target: 'http://localhost:80'
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.10.0
+        with:
+          target: 'http://localhost:80'
       
       - name: stop docker
         run: docker stop docker-apache
