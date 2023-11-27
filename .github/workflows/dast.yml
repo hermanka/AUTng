@@ -19,6 +19,9 @@ jobs:
       - name: run docker
         run: docker run -d -p 80:80 --name docker-apache -d my-apache2
 
+      - name: delete index html
+        run: docker exec my-apache2 rm -rf index.html
+
       - name: check server
         run: curl http://localhost:80/index.php
 
