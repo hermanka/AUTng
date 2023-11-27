@@ -22,6 +22,9 @@ jobs:
       - name: delete index html
         run: docker exec docker-apache rm -rf /usr/local/apache2/htdocs/index.html
 
+      - name: check conf server
+        run: docker exec docker-apache ll /usr/local/apache2
+
       - name: check server
         run: curl http://localhost:80
 
