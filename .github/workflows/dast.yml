@@ -23,7 +23,7 @@ jobs:
         run: docker exec docker-apache rm -rf /usr/local/apache2/htdocs/index.html
 
       - name: check conf server
-        run: docker exec docker-apache ls -la /usr/local/apache2
+        run: docker exec docker-apache ls -la /usr/local/apache2/conf
 
       - name: check server
         run: curl http://localhost:80
